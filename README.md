@@ -1,5 +1,5 @@
 # Poynt.NET
-.NET Library for Poynt API 
+.NET Wrapper for Poynt API 
 
 Config is loading from a file "poynt.configuration\poyntClientSDKConfig.json"
 Folder "poynt.configuration" should contain PEM file with your app's keys.
