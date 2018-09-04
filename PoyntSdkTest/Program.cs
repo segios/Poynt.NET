@@ -58,7 +58,7 @@ namespace PoyntSdkTest
             var webhook = sdk.Webhook();
 
             var allHooks = webhook.GetAllFromBusiness(configRoot.BusinessId).Result;
-            var activeHooks = allHooks.Hooks.Where(x => x.Active).ToList();
+            var activeHooks = allHooks.Hooks.Where(x => x.Active == true).ToList();
             activeHooks.ForEach(x =>
             {
                 Console.WriteLine("--start hook--");

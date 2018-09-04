@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Poynt.NET", "Poynt.NET\Poyn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoyntSdkTest", "PoyntSdkTest\PoyntSdkTest.csproj", "{56C3F203-4CF9-481B-ACE8-D246E0231B75}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poynt.NET.Model", "Poynt.NET.Model\Poynt.NET.Model.csproj", "{ED755864-0698-4553-AAFC-E641D0E11070}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{56C3F203-4CF9-481B-ACE8-D246E0231B75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56C3F203-4CF9-481B-ACE8-D246E0231B75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56C3F203-4CF9-481B-ACE8-D246E0231B75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED755864-0698-4553-AAFC-E641D0E11070}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED755864-0698-4553-AAFC-E641D0E11070}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED755864-0698-4553-AAFC-E641D0E11070}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED755864-0698-4553-AAFC-E641D0E11070}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

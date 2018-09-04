@@ -97,6 +97,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Poynt.NET.Model\Poynt.NET.Model.csproj">
+      <Project>{ed755864-0698-4553-aafc-e641d0e11070}</Project>
+      <Name>Poynt.NET.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Poynt.NET\Poynt.NET.csproj">
       <Project>{5824fef0-4104-4832-8c30-8f46abbfaf51}</Project>
       <Name>Poynt.NET</Name>
