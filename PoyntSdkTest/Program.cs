@@ -17,7 +17,7 @@ namespace PoyntSdkTest
         static async Task Main(string[] args)
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-
+            
             var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\..\\Poynt.NET.Config");
 
             var provider = new ClientConfigProvider(path);
