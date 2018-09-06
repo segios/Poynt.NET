@@ -151,6 +151,11 @@ namespace Poynt.NET
         {
             return new ApiCustomer(this);
         }
-        
+
+        public ApiProduct Product()
+        {
+            return new ApiProduct(this);
+        }
+
     }
 }
