@@ -1,14 +1,57 @@
-//====================================================================================================
-//The Free Edition of Java to C# Converter limits conversion output to 100 lines per file.
-
-//To purchase the Premium Edition, visit our website:
-//https://www.tangiblesoftwaresolutions.com/order/order-java-to-csharp.html
-//====================================================================================================
-
 using System.Collections.Generic;
 
 namespace Poynt.NET.Model
 {
+
+    //APPLICATION_PAN("0x5A"),
+    //CARD_EXPIRATION("0x5F24"),
+    //TRANSACTION_AMOUNT("0x9F02"),
+    //CARDHOLDER_NAME("0x5F20"),
+    //SERVICE_CODE("0x5F30"),
+    //TERMINAL_CAPABILITIES("0x9F33"),
+    //TRANSACTION_DATE("0x9A"),
+    //TRACK2_EQUIVALENT("0x57"),
+    //PAN_SEQUENCE("0x5F34"),
+    //ADDITIONAL_AMOUNT("0x9F03"),
+    //APPLICATION_CRYPTOGRAM("0x9F26"),
+    //APPLICATION_INTERCHANGE_PROFILE("0x82"),
+    //APPLICATION_TRANSACTION_COUNTER("0x9F36"),
+    //UNPREDICTABLE_NUMBER("0x9F37"),
+    //TERMINAL_VERIFICATION_RESULT("0x95"),
+    //TRANSACTION_TYPE("0x9C"),
+    //ISSUER_APPLICATION_DATA("0x9F10"),
+    //APPLICATION_IDENTIFIER("0x9F06"),
+    //APPLICATION_VERSION_NUMBER_9F09("0x9F09"),
+    //CRYPTOGRAM_INFORMATION_DATA("0x9F27"),
+    //CARDHOLDER_VERIFICATION_METHOD_RESULTS("0x9F34"),
+    //TERMINAL_TYPE("0x9F35"),
+    //TRANSACTION_STATUS_INFORMATION("0x9B"),
+    //APPLICATION_DEDICATED_FILE_NAME("0x4F"),
+    //APPLICATION_VERSION_NUMBER_9F08("0x9F08"),
+    //APPLICATION_USAGE_CONTROL("0x9F07"),
+    //ISSUER_COUNTRY_CODE("0x5F28"),
+    //ISSUER_ACTION_CODE_DEFAULT("0x9F0D"),
+    //ISSUER_ACTION_CODE_DENIAL("0x9F0E"),
+    //ISSUER_ACTION_CODE_ONLINE("0x9F0F"),
+    //ISSUER_CODE_TABLE_INDEX("0x9F11"),
+    //ISSUER_IDENTIFICATION_NUMBER("0x42"),
+    //TRANSACTION_TIME("0x9F21"),
+    //PAN_ENTRY_MODE("0x9F39"),
+    //DEDICATED_FILE_NAME("0x84"),
+    //APPLICATION_LABEL("0x50"),
+    //APPLICATION_PREFERRED_NAME("0x9F12"),
+    //TRANSACTION_CURRENCY_CODE("0x5F2A"),
+    //TERMINAL_COUNTRY_CODE("0x9F1A"),
+    //ACCOUNT_TYPE("0x5F57"),
+    //TERMINAL_IDENTIFICATION("0x9F1C"),
+    //INTERFACE_DEVICE_SERIAL_NUMBER("0x9F1E"),
+    //TRANSACTION_SEQUENCE_NUMBER("0x9F41"),
+    //DATA_AUTHENTICATION_CODE("0x9F45"),
+    //RESPONSE_AUTHORIZATION_CODE("0x89"),
+    //RESPONSE_AUTHORIZATION_RESPONSE_CODE("0x8A"),
+    //RESPONSE_ISSUER_AUTHENTICATION_DATA("0x91"),
+    //RESPONSE_ISSUER_SCRIPT_TEMPLATE_1("0x71"),
+    //RESPONSE_ISSUER_SCRIPT_TEMPLATE_2("0x72");
 
     public enum EMVTag
     {
