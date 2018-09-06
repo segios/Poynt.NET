@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Poynt.NET;
 using Poynt.NET.Model;
 using System;
@@ -25,8 +26,11 @@ namespace PoyntSdkTest
             {
                 var sdk = new PoyntSDK(configRoot, "test");
 
-                var business = await GetBusiness(sdk, "6a9a297c-ec88-4313-b8f6-2fd8da88e57a");
-                PrintObject(business);
+             //   var business = await GetBusiness(sdk, "6a9a297c-ec88-4313-b8f6-2fd8da88e57a");
+             //   PrintObject(business);
+
+                var orders = await GetOrders(sdk, "6a9a297c-ec88-4313-b8f6-2fd8da88e57a");
+                PrintObject(orders);
 
             }
             catch (Exception ex)
@@ -39,10 +43,21 @@ namespace PoyntSdkTest
 
         private static void PrintObject(object obj)
         {
-            var res = JsonConvert.SerializeObject(obj, Formatting.Indented);
+            var res = JsonConvert.SerializeObject(obj, Formatting.Indented, new StringEnumConverter());
             Console.WriteLine(res);
         }
 
+        private static async Task<OrderList> GetOrders(PoyntSDK sdk, string id)
+        {
+            var apiOrders = sdk.Order();
+            var result = await apiOrders.GetAllFromBusiness(id, new OrderFilterModel {
+                startAt = new DateTime(2016, 3,23, 0,0,0, DateTimeKind.Utc)
+           //     limit = 2
+            });
+
+            return result;
+        }
+        
         private static async Task<Business> GetBusiness(PoyntSDK sdk, string id)
         {
             var apiBussiness = sdk.Business();

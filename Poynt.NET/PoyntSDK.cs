@@ -136,5 +136,10 @@ namespace Poynt.NET
         {
             return new ApiWebhook(this);
         }
+
+        public ApiOrder Order()
+        {
+            return new ApiOrder(this);
+        }
     }
 }

@@ -1,10 +1,3 @@
-//====================================================================================================
-//The Free Edition of Java to C# Converter limits conversion output to 100 lines per file.
-
-//To purchase the Premium Edition, visit our website:
-//https://www.tangiblesoftwaresolutions.com/order/order-java-to-csharp.html
-//====================================================================================================
-
 using System;
 using System.Collections.Generic;
 

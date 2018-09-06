@@ -121,21 +121,26 @@ namespace Poynt.NET
             requestMessage.Headers.Add("Authorization", "Bearer " + accessToken);
         }
 
-        protected async Task<T> GetResource<T>(string resourceUrl, 
-            IDictionary<string, string> nvc = null)
+        protected async Task<T> GetResource<T>(string resourceUrl, FilterModel filter = null)
              where T : class
         {
             T result = default(T);
             try
             {
-                if (nvc != null) {
-                    resourceUrl = Microsoft.AspNetCore.WebUtilities.QueryHelpers.AddQueryString(resourceUrl, nvc);
+                if (filter != null)
+                {
+                    resourceUrl = ApplyFilterToRequest(resourceUrl, filter);
                 }
 
                 using (HttpRequestMessage get = CreateGetRequest(resourceUrl))
                 {
                     SetAuthorization(get);
-                    
+
+                    if (filter != null && filter.IfModifiedSince.HasValue)
+                    {
+                        get.Headers.Add("If-Modified-Since", filter.IfModifiedSince.Value.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssK"));
+                    }
+
                     using (var httpClient = GetHttpClient())
                     {
                         var response = await httpClient.SendAsync(get)
@@ -170,6 +175,46 @@ namespace Poynt.NET
             }
         }
 
+        protected virtual string ApplyFilterToRequest(string resourceUrl, FilterModel filter)
+        {
+            if (filter == null)
+            {
+                return resourceUrl;
+            }
+
+            var filters = new Dictionary<string, string>(filter.Filters);
+            var type = filter.GetType();
+            var props = type.GetProperties();
+            foreach (var p in props)
+            {
+                if (p.Name == nameof(filter.Filters) || p.Name == nameof(filter.IfModifiedSince))
+                {
+                    continue;
+                }
+
+                var val = p.GetValue(filter);
+                if (val == null)
+                {
+                    continue;
+                }
+
+                var sVal = string.Empty;
+                if (val.GetType() == typeof(DateTime))
+                {
+                    sVal = ((DateTime?)val).Value.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssK");
+                }
+                else
+                {
+                    sVal = val.ToString();
+                }
+                filters.Add(p.Name, sVal);
+            }
+
+            var res = Microsoft.AspNetCore.WebUtilities.QueryHelpers.AddQueryString(resourceUrl, filters);
+
+            return res;
+        }
+
         public async Task<TModel> Get(string itemId)
         {
             string baseUrl = endPoint + "/" + itemId;
@@ -182,9 +227,10 @@ namespace Poynt.NET
             return await GetResource<TModel>(baseUrl);
         }
 
-        public async Task<TCollection> GetAllFromBusiness(string businessId)
+        public async Task<TCollection> GetAllFromBusiness(string businessId, FilterModel filter = null)
         {
-            var nvc = new Dictionary<string, string>();
+            const string businessIdTag = "businessId";
+
             string baseUrl = endPoint;
             if (baseUrl.Contains("{businessId}"))
             {
@@ -192,9 +238,13 @@ namespace Poynt.NET
             }
             else
             {
-                nvc.Add("businessId", businessId);
+                if (filter == null)
+                {
+                    filter = new FilterModel();
+                }
+                filter.Filters.Add(businessIdTag, businessId);
             }
-            return await GetResource<TCollection>(baseUrl, nvc);
+            return await GetResource<TCollection>(baseUrl, filter);
         }
 
         protected async Task<T> PostResource<T>(T entity, 
