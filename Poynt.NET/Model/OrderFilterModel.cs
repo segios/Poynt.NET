@@ -20,9 +20,10 @@ namespace Poynt.NET.Model
     {
         public string cardNumberFirst6 { get; set; }
         public string cardNumberLast4 { get; set; }
-        public string cardExpirationMonth { get; set; }
-        public string cardExpirationYear { get; set; }
+        public int? cardExpirationMonth { get; set; }
+        public int? cardExpirationYear { get; set; }
         public string cardHolderFirstName { get; set; }
+        public string cardHolderLastName { get; set; }
         public string storeId { get; set; }
         public bool? includeStaysAll { get; set; }
     }

@@ -141,5 +141,10 @@ namespace Poynt.NET
         {
             return new ApiOrder(this);
         }
+
+        public ApiTransaction Transaction()
+        {
+            return new ApiTransaction(this);
+        }
     }
 }

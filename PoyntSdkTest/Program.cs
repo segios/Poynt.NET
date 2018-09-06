@@ -29,8 +29,11 @@ namespace PoyntSdkTest
              //   var business = await GetBusiness(sdk, "6a9a297c-ec88-4313-b8f6-2fd8da88e57a");
              //   PrintObject(business);
 
-                var orders = await GetOrders(sdk, "6a9a297c-ec88-4313-b8f6-2fd8da88e57a");
-                PrintObject(orders);
+                //var orders = await GetOrders(sdk, "6a9a297c-ec88-4313-b8f6-2fd8da88e57a");
+                //PrintObject(orders);
+
+                var trans = await GetTransactions(sdk, "6a9a297c-ec88-4313-b8f6-2fd8da88e57a");
+                PrintObject(trans);
 
             }
             catch (Exception ex)
@@ -41,10 +44,23 @@ namespace PoyntSdkTest
             Console.ReadKey();
         }
 
+        
         private static void PrintObject(object obj)
         {
             var res = JsonConvert.SerializeObject(obj, Formatting.Indented, new StringEnumConverter());
             Console.WriteLine(res);
+        }
+        private static async Task<TransactionList> GetTransactions(PoyntSDK sdk, string id)
+        {
+            var apiTrans = sdk.Transaction();
+            var result = await apiTrans.GetAllFromBusiness(id, new TransactionFilterModel
+            {
+                startAt = new DateTime(2016, 3, 23, 0, 0, 0, DateTimeKind.Utc),
+                
+                //     limit = 2
+            });
+
+            return result;
         }
 
         private static async Task<OrderList> GetOrders(PoyntSDK sdk, string id)

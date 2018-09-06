@@ -203,6 +203,10 @@ namespace Poynt.NET
                 {
                     sVal = ((DateTime?)val).Value.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssK");
                 }
+                else if (val.GetType() == typeof(string[]))
+                {
+                    sVal = string.Join(",", (string[])val);
+                }
                 else
                 {
                     sVal = val.ToString();
