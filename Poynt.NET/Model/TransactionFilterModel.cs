@@ -31,18 +31,12 @@ namespace Poynt.NET.Model
     creditDebitOnly query boolean (optional)
 
              */
-    public class TransactionFilterModel : FilterModel
+    public class TransactionFilterModel : CardFilterModel
     {
         public string storeId { get; set; }
         public string deviceId { get; set; }
         public string searchKey { get; set; }
         public string action { get; set; }
-        public string cardNumberFirst6 { get; set; }
-        public string cardNumberLast4 { get; set; }
-        public int? cardExpirationMonth { get; set; }
-        public int? cardExpirationYear { get; set; }
-        public string cardHolderFirstName { get; set; }
-        public string cardHolderLastName { get; set; }
         public string status { get; set; }
         public string[] transactionIds { get; set; }
         public bool? authOnly { get; set; }

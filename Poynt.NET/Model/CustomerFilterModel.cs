@@ -13,13 +13,11 @@ namespace Poynt.NET.Model
 //cardExpirationYear query integer(optional)
 //cardHolderFirstName query string (optional)
 //cardHolderLastName query string (optional)
-//storeId query string (optional)
-//includeStaysAll query boolean(optional)
 
-    public class OrderFilterModel : CardFilterModel
+
+    public class CustomerFilterModel : CardFilterModel
     {
-        public string storeId { get; set; }
-        public bool? includeStaysAll { get; set; }
+
     }
 
 }

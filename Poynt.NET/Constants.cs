@@ -25,6 +25,7 @@ namespace Poynt.NET
         public const string API_PRODUCTS = "/businesses/{businessId}/products";
         public const string API_TRANSACTIONS = "/businesses/{businessId}/transactions";
         public const string API_ORDERS = "/businesses/{businessId}/orders";
+        public const string API_CUSTOMERS = "/businesses/{businessId}/customers";
         public const string API_CLOUD_MESSAGES = "/cloudMessages";
         public const string API_WEBHOOKS = "/hooks";
 

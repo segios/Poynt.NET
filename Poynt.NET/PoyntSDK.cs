@@ -146,5 +146,11 @@ namespace Poynt.NET
         {
             return new ApiTransaction(this);
         }
+
+        public ApiCustomer Customer()
+        {
+            return new ApiCustomer(this);
+        }
+        
     }
 }
