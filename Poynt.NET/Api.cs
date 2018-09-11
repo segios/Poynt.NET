@@ -225,10 +225,10 @@ namespace Poynt.NET
             return await GetResource<TModel>(baseUrl);
         }
 
-        public async Task<TModel> GetFromBusiness(string businessId, string resourceId)
+        public async Task<TResult> GetFromBusiness<TResult>(string businessId, string resourceId) where TResult : class
         {
             string baseUrl = endPoint.Replace("{businessId}", businessId) + "/" + resourceId;
-            return await GetResource<TModel>(baseUrl);
+            return await GetResource<TResult>(baseUrl);
         }
 
         public async Task<TCollection> GetAllFromBusiness(string businessId, FilterModel filter = null)

@@ -52,7 +52,7 @@ namespace PoyntSdkTest
         }
         private static async Task<TransactionList> GetTransactions(PoyntSDK sdk, string id)
         {
-            var apiTrans = sdk.Transaction();
+            var apiTrans = sdk.Api<ApiTransaction>();
             var result = await apiTrans.GetAllFromBusiness(id, new TransactionFilterModel
             {
                 startAt = new DateTime(2016, 3, 23, 0, 0, 0, DateTimeKind.Utc),
@@ -65,7 +65,7 @@ namespace PoyntSdkTest
 
         private static async Task<OrderList> GetOrders(PoyntSDK sdk, string id)
         {
-            var apiOrders = sdk.Order();
+            var apiOrders = sdk.Api<ApiOrder>();
             var result = await apiOrders.GetAllFromBusiness(id, new OrderFilterModel {
                 startAt = new DateTime(2016, 3,23, 0,0,0, DateTimeKind.Utc)
            //     limit = 2
@@ -76,7 +76,7 @@ namespace PoyntSdkTest
         
         private static async Task<Business> GetBusiness(PoyntSDK sdk, string id)
         {
-            var apiBussiness = sdk.Business();
+            var apiBussiness = sdk.Api<ApiBusiness>();
             var result = await apiBussiness.Get(id);
 
             return result;
@@ -86,7 +86,7 @@ namespace PoyntSdkTest
         {
             var sdk = new PoyntSDK(configRoot, "test");
 
-            var webhook = sdk.Webhook();
+            var webhook = sdk.Api<ApiWebhook>();
 
             var allHooks = webhook.GetAllFromBusiness(configRoot.BusinessId).Result;
             var activeHooks = allHooks.Hooks.Where(x => x.Active == true).ToList();

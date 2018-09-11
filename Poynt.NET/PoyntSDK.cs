@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Net.Http;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,12 +15,31 @@ namespace Poynt.NET
 {
     public class PoyntSDK
     {
+        protected static Dictionary<Type, Type> apiContainer = new Dictionary<Type, Type>();
+
         private Config config;
         private ClientConfig clientConfig;
         private ConfigRoot configRoot;
         private JsonWebToken JsonWebToken;
         private string accessToken;
         private string refreshToken;
+
+        static PoyntSDK()
+        {
+            Type apiType = typeof(Api<,>);
+            var apis = from x in apiType.Assembly.GetTypes()
+                       let y = x.BaseType
+                       where !x.IsAbstract && !x.IsInterface &&
+                       y != null && y.IsGenericType &&
+                       y.GetGenericTypeDefinition() == apiType
+                       select x;
+
+            foreach (var api in apis)
+            {
+                apiContainer.Add(api, api);
+            }
+        }
+
 
         public PoyntSDK(ConfigRoot configRoot, ClientConfig clientConfig, Config config = null)
         {
@@ -34,13 +54,25 @@ namespace Poynt.NET
         {
         }
 
+
+        public virtual T Api<T>()
+        {
+            var type = typeof(T);
+            if (!apiContainer.ContainsKey(type))
+            {
+                return default(T);
+            }
+
+            return (T)Activator.CreateInstance(type, this);
+        }
+
         public ConfigRoot ConfigRoot
         {
             get
             {
                 return configRoot;
             }
-        } 
+        }
         public ClientConfig ClientConfig
         {
             get
@@ -127,35 +159,7 @@ namespace Poynt.NET
             this.refreshToken = null;
         }
 
-        public ApiBusiness Business()
-        {
-            return new ApiBusiness(this);
-        }
 
-        public ApiWebhook Webhook()
-        {
-            return new ApiWebhook(this);
-        }
-
-        public ApiOrder Order()
-        {
-            return new ApiOrder(this);
-        }
-
-        public ApiTransaction Transaction()
-        {
-            return new ApiTransaction(this);
-        }
-
-        public ApiCustomer Customer()
-        {
-            return new ApiCustomer(this);
-        }
-
-        public ApiProduct Product()
-        {
-            return new ApiProduct(this);
-        }
 
     }
 }
