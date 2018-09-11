@@ -14,5 +14,15 @@ namespace Poynt.NET
 
         }
 
+        public async Task<Business> GetByDeviceId(string deviceId)
+        {
+            return await Get(null, new FilterModel()
+            {
+                Filters = new Dictionary<string, string>() {
+                    { "storeDeviceId", deviceId }
+                }
+            });
+            
+        }
     }
 }

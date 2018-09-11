@@ -26,14 +26,24 @@ namespace PoyntSdkTest
             {
                 var sdk = new PoyntSDK(configRoot, "test");
 
-             //   var business = await GetBusiness(sdk, "6a9a297c-ec88-4313-b8f6-2fd8da88e57a");
-             //   PrintObject(business);
+                var businessUsers = await GetBusinessUsers(sdk, "6a9a297c-ec88-4313-b8f6-2fd8da88e57a");
+                PrintObject(businessUsers);
+
+                var businessUser = await GetBusinessUser(sdk, "6a9a297c-ec88-4313-b8f6-2fd8da88e57a", 0);
+                PrintObject(businessUser);
+                
+
+                //var business = await GetBusiness(sdk, "6a9a297c-ec88-4313-b8f6-2fd8da88e57a");
+                //PrintObject(business);
+
+                //var business = await GetBusinessByDevice(sdk, "urn:tid:xxxxx");
+                //PrintObject(business);
 
                 //var orders = await GetOrders(sdk, "6a9a297c-ec88-4313-b8f6-2fd8da88e57a");
                 //PrintObject(orders);
 
-                var trans = await GetTransactions(sdk, "6a9a297c-ec88-4313-b8f6-2fd8da88e57a");
-                PrintObject(trans);
+                //var trans = await GetTransactions(sdk, "6a9a297c-ec88-4313-b8f6-2fd8da88e57a");
+                //PrintObject(trans);
 
             }
             catch (Exception ex)
@@ -44,7 +54,22 @@ namespace PoyntSdkTest
             Console.ReadKey();
         }
 
-        
+        private static async Task<List<BusinessUser>> GetBusinessUsers(PoyntSDK sdk, string id)
+        {
+            var apiBusinessUser = sdk.Api<ApiBusinessUser>();
+            var result = await apiBusinessUser.GetAllFromBusiness(id);
+
+            return result;
+        }
+
+        private static async Task<BusinessUser> GetBusinessUser(PoyntSDK sdk, string bid, int id)
+        {
+            var apiBusinessUser = sdk.Api<ApiBusinessUser>();
+            var result = await apiBusinessUser.Get(bid, id);
+
+            return result;
+        }
+
         private static void PrintObject(object obj)
         {
             var res = JsonConvert.SerializeObject(obj, Formatting.Indented, new StringEnumConverter());
@@ -81,6 +106,15 @@ namespace PoyntSdkTest
 
             return result;
         }
+
+        private static async Task<Business> GetBusinessByDevice(PoyntSDK sdk, string id)
+        {
+            var apiBussiness = sdk.Api<ApiBusiness>();
+            var result = await apiBussiness.GetByDeviceId(id);
+
+            return result;
+        }
+        
 
         private static void PrintHooks(ConfigRoot configRoot)
         {

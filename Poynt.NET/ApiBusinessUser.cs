@@ -14,5 +14,9 @@ namespace Poynt.NET
 
         }
 
+        public async Task<BusinessUser> Get(string businessId, int userId)
+        {
+            return await GetFromBusiness<BusinessUser>(businessId, userId.ToString());
+        }
     }
 }

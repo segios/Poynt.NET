@@ -219,10 +219,10 @@ namespace Poynt.NET
             return res;
         }
 
-        public async Task<TModel> Get(string itemId)
+        public async Task<TModel> Get(string itemId, FilterModel filter = null)
         {
-            string baseUrl = endPoint + "/" + itemId;
-            return await GetResource<TModel>(baseUrl);
+            string baseUrl = string.IsNullOrWhiteSpace(itemId) ? endPoint : endPoint + "/" + itemId;
+            return await GetResource<TModel>(baseUrl, filter);
         }
 
         public async Task<TResult> GetFromBusiness<TResult>(string businessId, string resourceId) where TResult : class
