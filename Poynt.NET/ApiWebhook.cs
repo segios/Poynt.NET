@@ -9,11 +9,11 @@ namespace Poynt.NET
 {
     public class ApiWebhook : Api<Hook, HookList>
     {
-        public ApiWebhook(PoyntSDK sdk) : base(sdk, Constants.POYNT_API_HOST + Constants.API_WEBHOOKS)
+        public ApiWebhook(PoyntSDK sdk, params string[] parents) : base(sdk, parents)
         {
 
         }
-      
+
         public async Task<Hook> Register(Hook hook)
         {
             return await Create(hook);

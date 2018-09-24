@@ -20,15 +20,37 @@ namespace Poynt.NET
         public const string POYNT_API_HOST = "https://services.poynt.net";
         public const string API_TOKEN = "/token";
         public const string API_BUSINESSES = "/businesses";
-        public const string API_BUSINESS_USERS = "/businesses/{businessId}/businessUsers";
-        public const string API_CATALOGS = "/businesses/{businessId}/catalogs";
-        public const string API_PRODUCTS = "/businesses/{businessId}/products";
-        public const string API_TRANSACTIONS = "/businesses/{businessId}/transactions";
-        public const string API_ORDERS = "/businesses/{businessId}/orders";
-        public const string API_CUSTOMERS = "/businesses/{businessId}/customers";
         public const string API_CLOUD_MESSAGES = "/cloudMessages";
         public const string API_WEBHOOKS = "/hooks";
-        public const string API_TAX = "/businesses/{businessId}/taxes";
-        public const string API_HOOK_DELIVERY = "/businesses/{businessId}/taxes";
+
+        //businesses childs
+        public const string API_BUSINESS_USERS = "/businessUsers";
+        public const string API_CATALOGS = "/catalogs";
+        public const string API_PRODUCTS = "/products";
+        public const string API_TRANSACTIONS = "/transactions";
+        public const string API_ORDERS = "/orders";
+        public const string API_CUSTOMERS = "/customers";
+        public const string API_TAX = "/taxes";
+        public const string API_HOOK_DELIVERY = "/deliveries";
+
+        //product childs
+        public const string API_PRODUCT_SUMMARY = "/summary";
+        public const string API_VARIANTS = "/variants";
+
+
+        //catalog child
+        public const string API_CATALOGS_FULL = "/full";
+        public const string API_CATEGORY = "/categories";
+
+
+        public const string API_LOOKUP = "/lookup";
+        //public const string API_BUSINESS_USERS = "/businesses/{businessId}/businessUsers";
+        //public const string API_CATALOGS = "/businesses/{businessId}/catalogs";
+        //public const string API_PRODUCTS = "/businesses/{businessId}/products";
+        //public const string API_TRANSACTIONS = "/businesses/{businessId}/transactions";
+        //public const string API_ORDERS = "/businesses/{businessId}/orders";
+        //public const string API_CUSTOMERS = "/businesses/{businessId}/customers";
+        //public const string API_TAX = "/businesses/{businessId}/taxes";
+        //public const string API_HOOK_DELIVERY = "/businesses/{businessId}/deliveries";
     }
 }

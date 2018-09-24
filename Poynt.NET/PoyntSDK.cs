@@ -55,7 +55,7 @@ namespace Poynt.NET
         }
 
 
-        public virtual T Api<T>()
+        public virtual T Api<T>(params string[] parents)
         {
             var type = typeof(T);
             if (!apiContainer.ContainsKey(type))
@@ -63,7 +63,7 @@ namespace Poynt.NET
                 return default(T);
             }
 
-            return (T)Activator.CreateInstance(type, this);
+            return (T)Activator.CreateInstance(type, this, parents);
         }
 
         public ConfigRoot ConfigRoot

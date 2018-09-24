@@ -14,7 +14,8 @@ namespace Poynt.NET
         Put,
         Head,
         Options,
-        Trace
+        Trace,
+        PATCH
 
     }
 }

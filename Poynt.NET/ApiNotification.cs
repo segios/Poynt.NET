@@ -9,11 +9,12 @@ namespace Poynt.NET
 {
     public class ApiNotification : Api<CloudMessage, List<CloudMessage>>
     {
-        public ApiNotification(PoyntSDK sdk) : base(sdk, Constants.POYNT_API_HOST + Constants.API_CLOUD_MESSAGES)
+        public ApiNotification(PoyntSDK sdk, params string[] parents) : base(sdk, parents)
         {
 
         }
 
+     
         public async Task<CloudMessage> Send(CloudMessage msg)
         {
             return await Create(msg);

@@ -1,4 +1,5 @@
-﻿using Poynt.NET.Model;
+﻿using Poynt.NET.Endpoints;
+using Poynt.NET.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,14 +10,14 @@ namespace Poynt.NET
 {
     public class ApiBusinessUser : Api<BusinessUser, List<BusinessUser>>
     {
-        public ApiBusinessUser(PoyntSDK sdk) : base(sdk, Constants.POYNT_API_HOST + Constants.API_BUSINESS_USERS)
+        public ApiBusinessUser(PoyntSDK sdk, params string[] parents) : base(sdk, parents)
         {
 
         }
 
-        public async Task<BusinessUser> Get(string businessId, int userId)
-        {
-            return await GetFromBusiness<BusinessUser>(businessId, userId.ToString());
-        }
+        //public async Task<BusinessUser> Get(int userId)
+        //{
+        //    return await GetFromBusiness<BusinessUser>(businessId, userId.ToString());
+        //}
     }
 }

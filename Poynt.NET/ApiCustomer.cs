@@ -9,7 +9,7 @@ namespace Poynt.NET
 {
     public class ApiCustomer : Api<Customer, CustomerList>
     {
-        public ApiCustomer(PoyntSDK sdk) : base(sdk, Constants.POYNT_API_HOST + Constants.API_CUSTOMERS)
+        public ApiCustomer(PoyntSDK sdk, params string[] parents) : base(sdk, parents)
         {
 
         }

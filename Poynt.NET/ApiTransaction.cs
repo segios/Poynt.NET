@@ -9,7 +9,7 @@ namespace Poynt.NET
 {
     public class ApiTransaction : Api<Transaction, TransactionList>
     {
-        public ApiTransaction(PoyntSDK sdk) : base(sdk, Constants.POYNT_API_HOST + Constants.API_TRANSACTIONS)
+        public ApiTransaction(PoyntSDK sdk, params string[] parents) : base(sdk, parents)
         {
 
         }

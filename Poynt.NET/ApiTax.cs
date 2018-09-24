@@ -9,12 +9,10 @@ namespace Poynt.NET
 {
     public class ApiTax : Api<Tax, TaxList>
     {
-        public ApiTax(PoyntSDK sdk) : base(sdk, Constants.POYNT_API_HOST + Constants.API_TAX)
+        public ApiTax(PoyntSDK sdk, params string[] parents) : base(sdk, parents)
         {
 
         }
-
-       
 
     }
 }

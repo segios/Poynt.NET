@@ -9,7 +9,8 @@ namespace Poynt.NET
 {
     public class ApiHookDelivery : Api<Delivery, DeliveryList>
     {
-        public ApiHookDelivery(PoyntSDK sdk) : base(sdk, Constants.POYNT_API_HOST + Constants.API_HOOK_DELIVERY)
+
+        public ApiHookDelivery(PoyntSDK sdk, params string[] parents) : base(sdk, parents)
         {
 
         }

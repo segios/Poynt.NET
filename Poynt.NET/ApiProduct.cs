@@ -9,10 +9,11 @@ namespace Poynt.NET
 {
     public class ApiProduct : Api<Product, ProductList>
     {
-        public ApiProduct(PoyntSDK sdk) : base(sdk, Constants.POYNT_API_HOST + Constants.API_PRODUCTS)
+        public ApiProduct(PoyntSDK sdk, params string[] parents) : base(sdk, parents)
         {
 
         }
 
+      
     }
 }

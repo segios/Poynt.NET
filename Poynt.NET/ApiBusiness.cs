@@ -1,4 +1,5 @@
-﻿using Poynt.NET.Model;
+﻿using Poynt.NET.Endpoints;
+using Poynt.NET.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,8 @@ namespace Poynt.NET
 {
     public class ApiBusiness : Api<Business, BusinessList>
     {
-        public ApiBusiness(PoyntSDK sdk) : base(sdk, Constants.POYNT_API_HOST + Constants.API_BUSINESSES)
+        public ApiBusiness(PoyntSDK sdk) : base(sdk)
         {
-
         }
 
         public async Task<Business> GetByDeviceId(string deviceId)

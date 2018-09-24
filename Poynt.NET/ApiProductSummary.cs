@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Poynt.NET
 {
-    public class ApiOrder : Api<Order, OrderList>
+    public class ApiProductSummary : Api<ProductSummary, ProductSummaryList>
     {
-        public ApiOrder(PoyntSDK sdk, params string[] parents) : base(sdk, parents)
+        public ApiProductSummary(PoyntSDK sdk, params string[] parents) : base(sdk, parents)
         {
 
         }
-       
 
+ 
     }
 }
