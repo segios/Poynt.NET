@@ -10,7 +10,7 @@ namespace Poynt.NET
 {
     public class ApiBusiness : Api<Business, BusinessList>
     {
-        public ApiBusiness(PoyntSDK sdk) : base(sdk)
+        public ApiBusiness(PoyntSDK sdk, params string[] parents) : base(sdk, parents)
         {
         }
 

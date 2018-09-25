@@ -40,7 +40,7 @@ namespace Poynt.NET
         {
             this.sdk = sdk;
             this.endPoint = endPoint;
-            this.getHttpClient = getHttpClient;
+            this.getHttpClient = getHttpClient ?? GetHttpClient;
 
             jsonSerializerSettings = new JsonSerializerSettings();
             jsonSerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
