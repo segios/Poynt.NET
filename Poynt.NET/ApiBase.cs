@@ -23,11 +23,12 @@ namespace Poynt.NET
         protected PoyntSDK sdk;
         protected Func<string> endPoint;
         protected JsonSerializerSettings jsonSerializerSettings;
-
-        public ApiBase(PoyntSDK sdk, string endPoint)
+        protected Func<HttpClient> getHttpClient;
+        public ApiBase(PoyntSDK sdk, string endPoint, Func<HttpClient> getHttpClient = null)
         {
             this.sdk = sdk;
             this.endPoint = () => endPoint;
+            this.getHttpClient = getHttpClient ?? GetHttpClient;
 
             jsonSerializerSettings = new JsonSerializerSettings();
             jsonSerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
@@ -35,16 +36,23 @@ namespace Poynt.NET
             jsonSerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
         }
 
-        public ApiBase(PoyntSDK sdk, Func<string> endPoint)
+        public ApiBase(PoyntSDK sdk, Func<string> endPoint, Func<HttpClient> getHttpClient = null)
         {
             this.sdk = sdk;
             this.endPoint = endPoint;
+            this.getHttpClient = getHttpClient;
 
             jsonSerializerSettings = new JsonSerializerSettings();
             jsonSerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             jsonSerializerSettings.Converters.Add(new StringEnumConverter());
             jsonSerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
         }
+
+        protected virtual HttpClient GetHttpClient()
+        {
+            return new HttpClient();
+        }
+
 
         protected virtual HttpRequestMessage CreateGetRequest(string url)
         {
@@ -113,11 +121,7 @@ namespace Poynt.NET
             return result;
         }
 
-        protected virtual HttpClient GetHttpClient()
-        {
-            return new HttpClient();
-        }
-
+        
         protected virtual void SetAuthorization(HttpRequestMessage requestMessage)
         {
             string accessToken = sdk.AccessToken;
@@ -144,7 +148,7 @@ namespace Poynt.NET
                         get.Headers.Add("If-Modified-Since", filter.IfModifiedSince.Value.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssK"));
                     }
 
-                    using (var httpClient = GetHttpClient())
+                    using (var httpClient = getHttpClient())
                     {
                         var response = await httpClient.SendAsync(get)
                             .ConfigureAwait(false); 
@@ -266,7 +270,7 @@ namespace Poynt.NET
                         request.Content = content;
                     }
 
-                    using (var httpClient = GetHttpClient())
+                    using (var httpClient = getHttpClient())
                     {
                         var response = await httpClient.SendAsync(request)
                             .ConfigureAwait(false); 
