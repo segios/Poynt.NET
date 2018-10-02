@@ -19,6 +19,8 @@ namespace Poynt.NET.Model
 
         public string ReceiptEmailAddress { get; set; }
 
+        public string CustomerLanguage { get; set; }
+
         public TransactionAmounts Amounts { get; set; }
 
         public TransactionReason Reason { get; set; }

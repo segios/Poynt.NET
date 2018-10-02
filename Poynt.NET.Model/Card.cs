@@ -57,5 +57,6 @@ namespace Poynt.NET.Model
 
         public string EncryptedExpirationDate { get; set; }
 
+        public string Issuer { get; set; }
     }
 }

@@ -16,14 +16,20 @@ namespace Poynt.NET.Model
         MERCURY,
         MONERIS,
         PAYPAL,
+        ELAVON_MX,
         STRIPE,
         TSYS,
         VANTIV,
         WORLDPAY,
         EPX,
+        WEPAY,
+
         BRIDGEPAY,
-        CREDITCALL,
+        MITEC_MX,
+        MOCK,
         NA_BANCARD,
-        MOCK
+        CREDITCALL,
+        ELAVON_EU
     }
+
 }

@@ -7,6 +7,7 @@ namespace Poynt.NET.Model
     {
         AUTHORIZE,
         CAPTURE,
+        VOID,
         OFFLINE_AUTHORIZE,
         REFUND,
         SALE,

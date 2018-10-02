@@ -5,6 +5,8 @@ namespace Poynt.NET.Model
 	 
     public enum FundingSourceAccountType
     {
-        EBT
+        EBT,
+        CHECKING,
+        SAVINGS
     }
 }

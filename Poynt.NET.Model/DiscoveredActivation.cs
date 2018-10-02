@@ -11,6 +11,8 @@ namespace Poynt.NET.Model
 
         private const string TAG = "DiscoveredActivation";
 
+        public Address AtAddress { get; set; }
+
         public bool? MockProcessor { get; set; }
 
         public IDictionary<string, bool> PaymentFeatureMap { get; set; }

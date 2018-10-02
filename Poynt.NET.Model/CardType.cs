@@ -6,15 +6,18 @@ namespace Poynt.NET.Model
     public enum CardType
     {
         AMERICAN_EXPRESS,
-        MAESTRO,
+        EBT,
         DISCOVER,
+        MAESTRO,
         DINERS_CLUB,
         JCB,
+        ALIPAY,
         MASTERCARD,
         DANKORT,
         OTHER,
-        VISA,
+        PAYPAL,
+        INTERAC,
         UNIONPAY,
-        PAYPAL
+        VISA,
     }
 }

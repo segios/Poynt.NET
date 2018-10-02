@@ -11,6 +11,8 @@ namespace Poynt.NET.Model
 
         public ActiveTime When { get; set; }
 
+        public bool? AppliedBeforeTax { get; set; }
+
         public DiscountScope Scope { get; set; }
 
         public DiscountType Type { get; set; }

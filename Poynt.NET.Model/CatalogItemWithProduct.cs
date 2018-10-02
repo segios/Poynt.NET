@@ -14,6 +14,8 @@ namespace Poynt.NET.Model
 
         public IList<AvailableDiscount> AvailableDiscounts { get; set; }
 
+        public IList<CatalogDisplayMetadata> DisplayMetadata { get; set; }
+
         public IList<Tax> Taxes { get; set; }
 
         public Product Product { get; set; }

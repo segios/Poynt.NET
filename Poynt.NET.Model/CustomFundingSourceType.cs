@@ -13,6 +13,7 @@ namespace Poynt.NET.Model
         COUPON,
         GIFT_CERTIFICATE,
         QR_CODE,
-        OTHER
+        OTHER,
+        ALIPAY
     }
 }

@@ -3,9 +3,7 @@ using System;
 
 namespace Poynt.NET.Model
 {
-
     public class CustomFundingSource
-
     {
 
         private const string TAG = "CustomFundingSource";

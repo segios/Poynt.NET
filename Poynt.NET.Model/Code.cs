@@ -12,7 +12,6 @@ namespace Poynt.NET.Model
 
     public enum Code
     {
-
         //    STORE_DEVICE_ALREADY_REGISTERED(400, "Store device already registered with a different store."),
         //    STORE_DEVICE_ALREADY_ACTIVATED(400, "Store device already activated."),
         //    STORE_DEVICE_UNVERIFIED(400, "Store device failed verification."),
@@ -31,20 +30,19 @@ namespace Poynt.NET.Model
         //    ORDER_ALREADY_COMPLETED(400, "The Order has already been marked as completed."),
         //    TXN_DUPLICATE(400, "We have detected a transaction that might be duplicate."),
         //    TXN_ALREADY_EXISTS(400, "The transaction already exists."),
+        //    NO_SESSION_KEY_RETURNED(400, "No Session Key was returned."),
         //    DATABASE_ERROR(500, "System error."),
         //    INTERNAL_ERROR(500, "System error."),
         //    ATLEAST_ONE_TXN_FAILED(400, "Order cancelled as at least one of the transactions failed."),
-        //    /** @deprecated */
-        //    @Deprecated
-        //PROCESSOR_DECLINED(400, "Processor declined."),
-        //    /** @deprecated */
-        //    @Deprecated
-        //PROCESSOR_TIMEOUT(400, "Processor call timed out. A request to cancel this has already been issued."),
+        //    PROCESSOR_DECLINED(400, "Processor declined."),
+        //    PROCESSOR_TIMEOUT(400, "Processor call timed out. A request to cancel this has already been issued."),
         //    PROCESSOR_DETECTED_DUP(400, "Processor detected duplicate txn. If this is not duplicate, please retry after 6 minutes."),
-        //    PROCESSOR_SIGNON_FAILED(500, "Processor sign-on failed; typically retriable."),
-        //    EXTERNAL_SERVER_CONNECT_FAILURE(500, "Could not connect to external server."),
-        //    EXTERNAL_SERVER_READ_TIMEOUT(500, "Call to external server timed out. If this was payments related operation, a request to cancel this has already been issued."),
-        //    EXTERNAL_SERVER_ERROR(500, "Unknown error from the server."),
+        //    PROCESSOR_SIGNON_FAILED(502, "Processor sign-on failed; typically retriable."),
+        //    EXTERNAL_SERVER_CONNECT_FAILURE(504, "Could not connect to external server."),
+        //    EXTERNAL_SERVER_READ_TIMEOUT(504, "Call to external server timed out. If this was payments related operation, a request to cancel this has already been issued."),
+        //    EXTERNAL_SERVER_ERROR(502, "Unknown error from the server."),
+        //    CUSTOM_FUNDING_ERROR(400, "There was a problem processing the custom funding source."),
+        //    CUSTOM_FUNDING_VERIFICATION_REQUIRED(417, "Funding source verification required."),
         //    MISSING_PARAMETER(400, "Required parameter is missing."),
         //    STORE_DEVICE_NOT_FOUND(404, "Store device not found in our records."),
         //    BUSINESS_AGREEMENT_NOT_FOUND(404, "Business agreement not found in our records."),
@@ -108,20 +106,19 @@ namespace Poynt.NET.Model
         ORDER_ALREADY_COMPLETED,
         TXN_DUPLICATE,
         TXN_ALREADY_EXISTS,
+        NO_SESSION_KEY_RETURNED,
         DATABASE_ERROR,
         INTERNAL_ERROR,
         ATLEAST_ONE_TXN_FAILED,
-        /** @deprecated */
-        //@Deprecated
-    PROCESSOR_DECLINED,
-        /** @deprecated */
-        //@Deprecated
-    PROCESSOR_TIMEOUT,
+        PROCESSOR_DECLINED,
+        PROCESSOR_TIMEOUT,
         PROCESSOR_DETECTED_DUP,
         PROCESSOR_SIGNON_FAILED,
         EXTERNAL_SERVER_CONNECT_FAILURE,
         EXTERNAL_SERVER_READ_TIMEOUT,
         EXTERNAL_SERVER_ERROR,
+        CUSTOM_FUNDING_ERROR,
+        CUSTOM_FUNDING_VERIFICATION_REQUIRED,
         MISSING_PARAMETER,
         STORE_DEVICE_NOT_FOUND,
         BUSINESS_AGREEMENT_NOT_FOUND,

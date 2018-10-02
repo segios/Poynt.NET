@@ -13,5 +13,6 @@ namespace Poynt.NET.Model
 
         public string Resource { get; set; }
 
+        public string Type { get; set; }
     }
 }
